@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>circos plot-1 | Hexo</title><meta name="keywords" content="circos,rice"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据准备1、文件格式 KARYOTYPE 线、散点图、直方图和热图 tile text links  KARYOTYPE——染色体以水稻的karyotype文件为例，主要包括：名字、标签、起始和终止位置以及颜色 123456#chr     -       Chr1    Chr1    0       43270923        Chr1chr     -       Chr2    Chr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="circos plot-1">
+<meta property="og:url" content="https://llp98.cn/2021/11/01/circos-plot-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据准备1、文件格式 KARYOTYPE 线、散点图、直方图和热图 tile text links  KARYOTYPE——染色体以水稻的karyotype文件为例，主要包括：名字、标签、起始和终止位置以及颜色 123456#chr     -       Chr1    Chr1    0       43270923        Chr1chr     -       Chr2    Chr">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2021-11-01T12:20:53.000Z">
+<meta property="article:modified_time" content="2021-11-01T12:43:25.609Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="circos">
+<meta property="article:tag" content="rice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://llp98.cn/2021/11/01/circos-plot-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'circos plot-1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-01 20:43:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">circos plot-1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-11-01T12:20:53.000Z" title="Created 2021-11-01 20:20:53">2021-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-11-01T12:43:25.609Z" title="Updated 2021-11-01 20:43:25">2021-11-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/circos/">circos</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="circos plot-1"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h1><h2 id="1、文件格式"><a href="#1、文件格式" class="headerlink" title="1、文件格式"></a>1、文件格式</h2><ul>
+<li>KARYOTYPE</li>
+<li>线、散点图、直方图和热图</li>
+<li>tile</li>
+<li>text</li>
+<li>links</li>
+</ul>
+<h4 id="KARYOTYPE——染色体"><a href="#KARYOTYPE——染色体" class="headerlink" title="KARYOTYPE——染色体"></a>KARYOTYPE——染色体</h4><p>以水稻的karyotype文件为例，主要包括：名字、标签、起始和终止位置以及颜色</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line">chr     -       Chr1    Chr1    0       43270923        Chr1</span><br><span class="line">chr     -       Chr2    Chr2    0       35937250        Chr2</span><br><span class="line">chr     -       Chr3    Chr3    0       36413819        Chr3</span><br><span class="line">chr     -       Chr4    Chr4    0       35502694        Chr4</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>可以在 <code>data/karyotype</code> 文件夹下找到常用的参考基因组的 <kbd>karyotype</kbd> 文件</p>
+<h4 id="线、散点图、直方图和热图"><a href="#线、散点图、直方图和热图" class="headerlink" title="线、散点图、直方图和热图"></a>线、散点图、直方图和热图</h4><p>线、散点图、直方图和热图都是2D数据，具体格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#chr	start	end	value	[options]</span><br><span class="line">Chr1    0       100000  0</span><br><span class="line">Chr1    100000  200000  0</span><br><span class="line">Chr1    200000  300000  0</span><br><span class="line">Chr1    300000  400000  0</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h4 id="tile"><a href="#tile" class="headerlink" title="tile"></a>tile</h4><p><kbd>tile</kbd> 定义为同一染色体上的区间，用来显示覆盖率相关信息，如 <kbd>reads</kbd>或 <kbd>clones</kbd> 等信息,具体格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#chr start end [options]</span></span><br><span class="line">Chr 0 100000 </span><br></pre></td></tr></table></figure>
+
+<h4 id="text"><a href="#text" class="headerlink" title="text"></a>text</h4><p>与基因组位置相关的文本信息，如文本标签</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#chr start end label [options]</span></span><br><span class="line">hs5 50 75 ABC</span><br></pre></td></tr></table></figure>
+
+<p>如果你要显示多个词，可以用 <code>tab</code> 作为分隔符</p>
+<h4 id="links"><a href="#links" class="headerlink" title="links"></a>links</h4><p>同一染色体或不同染色体不同区域之间的关系，可以绘制成线条或丝带的形状</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># chr1 start1 end1 chr2 start2 end2 [options]</span><br><span class="line">hs1 200 300 hs10 1100 1300</span><br><span class="line">hs7 50 150 hs 5000 6000 color=blue</span><br></pre></td></tr></table></figure>
+
+<p><code>binlinks</code>, <code>bundlelinks</code> 和 <code>filterlinks</code> 工具 可以用于操作和分析 <code>link</code> 文件.</p>
+<h2 id="2、options选项"><a href="#2、options选项" class="headerlink" title="2、options选项"></a>2、options选项</h2><p>在<code>&lt;plot&gt;</code>, <code>&lt;link&gt;</code>,或 <code>&lt;highlight&gt;</code>块中定义的特定数据点的任何格式化选项，如形状、大小、颜色等，都通过输入文件来定义</p>
+<p>在上面展示的例子中的 <code>[options]</code> 字符可以通过以逗号分隔的键值对的字符串来设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chr start end var1=value1,var2=value2,...</span><br></pre></td></tr></table></figure>
+
+<p>而对于解析为列表值，如 <code>RGB</code> 值，需要用 <code>()</code>、<code>[]</code> 来分隔</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chr start end color=(R,G,B)</span><br></pre></td></tr></table></figure>
+
+<h5 id="有无数据值时的-options"><a href="#有无数据值时的-options" class="headerlink" title="有无数据值时的 options"></a>有无数据值时的 options</h5><p>输入文件中有与基因组位置相关的值时，<code>options</code> 域在第 <code>5</code> 列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chr start end value options</span><br></pre></td></tr></table></figure>
+
+<p>如果没有值，<code>options</code> 域在第 <code>4</code> 列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chr start end options</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、文件分隔符"><a href="#3、文件分隔符" class="headerlink" title="3、文件分隔符"></a>3、文件分隔符</h2><p>默认情况下是以空白符作为分隔符，想要更改分隔符,可以在配置文件中定义 <code>file_delim</code> 参数</p>
+<p>最好是将参数放在 <code>etc/housekeeping.conf</code> 文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># etc/housekeeping.conf</span><br><span class="line">file_delim = \t</span><br></pre></td></tr></table></figure>
+
+<p>如果想要设置多词文本标签，需要设置分隔符为 <code>tab</code>，将会应用于所有输入文件（数据文件和核型文件 <code>karyotype</code>）</p>
+<h2 id="4、文件位置"><a href="#4、文件位置" class="headerlink" title="4、文件位置"></a>4、文件位置</h2><p>如果指定特定文件的绝对路径，<code>circos</code> 将不会去其他地方寻找文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file = /path/to/file.txt</span><br></pre></td></tr></table></figure>
+
+<p>如果文件 <code>/path/to/file.txt</code> 不存在，将会引发错误</p>
+<p>如果使用相对路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file = data/file.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>circos</code> 将会试图以下面的顺序在多个目录中查找</p>
+<ul>
+<li>在 <code>data_path</code> 下的所有目录</li>
+<li><code>CWD/</code></li>
+<li><code>CWD/etc</code></li>
+<li><code>CWD/data</code></li>
+<li><code>CWD/../</code></li>
+<li><code>CWD/../etc</code></li>
+<li><code>CWD/../data</code></li>
+<li><code>CWD/../..</code></li>
+<li><code>CWD/../../etc</code></li>
+<li><code>CWD/../../data</code></li>
+</ul>
+<p><code>CWD</code> 为当前目录，推荐使用相对路径的方式，这样的可移植性较好</p>
+<p>建议你将数据文件放置一个单独的文件夹中 <code>(e.g. data/)</code>，与配置文件区分开</p>
+<hr>
+<p>本文参考了生信学习手册的内容，在此表示感谢，以下是原文链接<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Bj2bJKDevNMX3MbMO5TYPw">circos 学习手册</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://llp98.cn/2021/11/01/circos-plot-1/">https://llp98.cn/2021/11/01/circos-plot-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/circos/">circos</a><a class="post-meta__tags" href="/tags/rice/">rice</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/26/rrBLUP%E4%BD%BF%E7%94%A8/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">rrBLUP使用</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/20/circos-%E5%9C%88%E5%9B%BE/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">circos 圈图</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2021/10/20/circos-%E5%9C%88%E5%9B%BE/" title="circos 圈图"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-20</div><div class="title">circos 圈图</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">数据准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">1、文件格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#KARYOTYPE%E2%80%94%E2%80%94%E6%9F%93%E8%89%B2%E4%BD%93"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">KARYOTYPE——染色体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E3%80%81%E6%95%A3%E7%82%B9%E5%9B%BE%E3%80%81%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%92%8C%E7%83%AD%E5%9B%BE"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">线、散点图、直方图和热图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tile"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">tile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#text"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">text</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#links"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">links</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81options%E9%80%89%E9%A1%B9"><span class="toc-number">1.2.</span> <span class="toc-text">2、options选项</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E6%97%A0%E6%95%B0%E6%8D%AE%E5%80%BC%E6%97%B6%E7%9A%84-options"><span class="toc-number">1.2.0.0.1.</span> <span class="toc-text">有无数据值时的 options</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E6%96%87%E4%BB%B6%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-number">1.3.</span> <span class="toc-text">3、文件分隔符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.4.</span> <span class="toc-text">4、文件位置</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/12/my-first/" title="my first"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="my first"/></a><div class="content"><a class="title" href="/2022/05/12/my-first/" title="my first">my first</a><time datetime="2022-05-12T06:41:01.000Z" title="Created 2022-05-12 14:41:01">2022-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/30/hello-world/" title="Hello World"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/04/30/hello-world/" title="Hello World">Hello World</a><time datetime="2022-04-30T06:22:55.954Z" title="Created 2022-04-30 14:22:55">2022-04-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/26/rrBLUP%E4%BD%BF%E7%94%A8/" title="rrBLUP使用"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="rrBLUP使用"/></a><div class="content"><a class="title" href="/2022/04/26/rrBLUP%E4%BD%BF%E7%94%A8/" title="rrBLUP使用">rrBLUP使用</a><time datetime="2022-04-26T13:48:42.000Z" title="Created 2022-04-26 21:48:42">2022-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/01/circos-plot-1/" title="circos plot-1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="circos plot-1"/></a><div class="content"><a class="title" href="/2021/11/01/circos-plot-1/" title="circos plot-1">circos plot-1</a><time datetime="2021-11-01T12:20:53.000Z" title="Created 2021-11-01 20:20:53">2021-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/20/circos-%E5%9C%88%E5%9B%BE/" title="circos 圈图"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="circos 圈图"/></a><div class="content"><a class="title" href="/2021/10/20/circos-%E5%9C%88%E5%9B%BE/" title="circos 圈图">circos 圈图</a><time datetime="2021-10-20T01:43:29.000Z" title="Created 2021-10-20 09:43:29">2021-10-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
