@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>SV_genotype</title>
+      <link href="/2022/07/05/SV-genotype/"/>
+      <url>/2022/07/05/SV-genotype/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="sv_genotype"><a class="markdownIt-Anchor" href="#sv_genotype"></a> SV_genotype</h1><h2 id="软件安装"><a class="markdownIt-Anchor" href="#软件安装"></a> 软件安装</h2><p>从https://github.com/hall-lab/svtyper下载整个文件夹，然后上传到服务器，然后解压，随后按以下命令安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">unzip svtyper-master.zip</span><br><span class="line"><span class="built_in">cd</span> svtyper</span><br><span class="line">conda create --channel bioconda --name Py27 pysam numpy scipy cytoolz python=2.7</span><br><span class="line">pip install pytest-runner</span><br><span class="line">pip install pytest==4.6.4</span><br><span class="line">pip install -e .</span><br><span class="line">make <span class="built_in">test</span></span><br></pre></td></tr></table></figure><p>当出现以下界面时，则表示安装成功：</p><p><img src="image-20220705094406092.png" alt="image-20220705094406092" /></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> GWAS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SV </tag>
+            
+            <tag> genotype </tag>
+            
+            <tag> GWAS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>手动构造plink文件并转为vcf文件</title>
+      <link href="/2022/06/04/%E6%89%8B%E5%8A%A8%E6%9E%84%E9%80%A0plink%E6%96%87%E4%BB%B6%E5%B9%B6%E8%BD%AC%E4%B8%BAvcf%E6%96%87%E4%BB%B6/"/>
+      <url>/2022/06/04/%E6%89%8B%E5%8A%A8%E6%9E%84%E9%80%A0plink%E6%96%87%E4%BB%B6%E5%B9%B6%E8%BD%AC%E4%B8%BAvcf%E6%96%87%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BLUP计算及相关报错解决</title>
       <link href="/2022/06/02/BLUP%E8%AE%A1%E7%AE%97%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3/"/>
       <url>/2022/06/02/BLUP%E8%AE%A1%E7%AE%97%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8A%A5%E9%94%99%E8%A7%A3%E5%86%B3/</url>
