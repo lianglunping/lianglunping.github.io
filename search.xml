@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>VCF合并</title>
+      <link href="/2022/08/26/VCF%E5%90%88%E5%B9%B6/"/>
+      <url>/2022/08/26/VCF%E5%90%88%E5%B9%B6/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="vcf合并"><a class="markdownIt-Anchor" href="#vcf合并"></a> VCF合并</h1><p>vcf文件储存的是样本的变异信息文件，在同一批次分析中，如果不是采用joint calling的方式进行分析，最终会获得单个样本的变异数据。这种文件很难对同组不同样本进行差异分析，此处就需要对文件进行合并。针对不同的标记，可以采用不同的软件。</p><h2 id="snp"><a class="markdownIt-Anchor" href="#snp"></a> SNP</h2><p>对于标记信息是SNP的vcf文件合并，常常用到的软件有gatk、vcftools、bcftools。其中，最常见的应用场景是对不同样本的变异文件进行合并，此时我采用的是bcftools文件。由于bcftools合并vcf文件时，需要提前对所有的vcf文件进行压缩并创建索引，因此还会涉及到bgzip和tabix这两个软件的使用。示例如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">对vcf文件进行排序</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">picard.jar SortVcf I=test1.vcf O=test1.sort.vcf</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">压缩为gz文件</span></span><br><span class="line">bgzip raw.vcf </span><br><span class="line">bgzip CZL.Par.vcf </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">建立索引</span></span><br><span class="line">tabix -p vcf raw.vcf.gz </span><br><span class="line">tabix -p vcf CZL.Par.vcf.gz </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">合并</span></span><br><span class="line">bcftools merge  raw.vcf.gz  CZL.Par.vcf.gz &gt; Par.vcf</span><br></pre></td></tr></table></figure><h2 id="sv"><a class="markdownIt-Anchor" href="#sv"></a> SV</h2><p>而对于SV标记信息构成的vcf文件，则往往采用SUVIVOR来对vcf文件进行合并。具体示例如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">首先, 将VCF文件名输出到一个文件中:</span></span><br><span class="line">ls *vcf &gt; sample_files</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后, 生成合并的VCF结果:</span></span><br><span class="line">SURVIVOR merge sample_files 1000 2 1 1 0 30 sample_merged.vcf</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">参数示意</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">1000表示允许合并的SV间的距离最大为1000bp;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">2表示仅输出2个工具均鉴定出的SV;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">1表示仅输出2个工具鉴定出的同类型的SV;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">1表示仅输出2个工具鉴定出的同方向的SV;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">30表示仅考虑长度在30bp以上的SV</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SNP </tag>
+            
+            <tag> VCF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SV_genotype</title>
       <link href="/2022/07/05/SV-genotype/"/>
       <url>/2022/07/05/SV-genotype/</url>
