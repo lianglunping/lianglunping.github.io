@@ -2,7 +2,7 @@ name: Rice Primer Studio checks
 on:
   push:
     branches: [hexo, release/rice-primer-studio-1.1.0-rc2]
-    paths: ['rice-primer-studio/**']
+    paths: ['rice-primer-studio/**', '.github/workflows/rice-primer-studio-ci.yml']
   pull_request:
     paths: ['rice-primer-studio/**', '.github/workflows/rice-primer-studio-ci.yml']
   workflow_dispatch:
@@ -14,19 +14,50 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+      - name: Check complete release before build or installation
+        run: |
+          python3 rice-primer-studio/scripts/preflight_release.py --root rice-primer-studio --output "$RUNNER_TEMP/rps-preflight.json"
+      - name: Report release gate without changing its result
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/rps-preflight.json" ]; then
+            printf '## Release completeness (not deployment approval)\n\n```json\n' >> "$GITHUB_STEP_SUMMARY"
+            cat "$RUNNER_TEMP/rps-preflight.json" >> "$GITHUB_STEP_SUMMARY"
+            printf '\n```\n' >> "$GITHUB_STEP_SUMMARY"
+          fi
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22.16.0'
-      - name: Rebuild and test the public application only
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Verify frozen artifacts, build and run regressions
         working-directory: rice-primer-studio
         run: |
-          python3 build.py
           mkdir -p qa
-          node --test tests/test_*.cjs
           python3 scripts/check_public.py
-          git diff --exit-code -- index.html src downloads/rice_primer_studio_offline.html
+          python3 build.py
+          python3 scripts/preflight_release.py --root . --output qa/post_build_preflight.json
+          node --test tests/test_*.cjs
+          python3 -m unittest discover -s tests -p test_release.py -v
+          python3 -m unittest discover -s tests -p test_native.py -v
+      - name: Install browser test dependencies
+        working-directory: rice-primer-studio
+        run: |
+          python3 -m pip install -r tests/requirements.txt
+          python3 -m playwright install --with-deps chromium
+      - name: Require real HTTP browser verification (no memory fallback)
+        working-directory: rice-primer-studio
+        run: |
+          python3 tests/test_site_browser.py --browser-executable "" --output qa/public_http_browser.json
+      - name: Recheck frozen source after all tests
+        working-directory: rice-primer-studio
+        run: |
+          python3 scripts/preflight_release.py --root . --output qa/final_preflight.json
+          git diff --exit-code -- index.html release.json src tests/tm_golden.json
+# Intentionally no deploy job and no Pages write permission. Existing blog is unchanged.
