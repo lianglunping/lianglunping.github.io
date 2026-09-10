@@ -1,0 +1,21 @@
+{
+  "schema": "rps.publication-staging/1",
+  "intendedVersion": "1.1.0-rc3",
+  "status": "INCOMPLETE_BLOCKED_NOT_PUBLISHED",
+  "mergeAllowed": false,
+  "sitePublished": false,
+  "fullRemoteCodePushComplete": false,
+  "sourceFilesPresent": [
+    "src/engine.js",
+    "src/io.js",
+    "src/gff.js",
+    "src/review.js",
+    "src/deployment.js",
+    "src/audit_ui.js"
+  ],
+  "sourceSubtreeSha1": "9465497e0d7d28299ac7fc67b75b6e16b6b3a315",
+  "blocker": "Tool platform blocked the audit-module write; the blocked write was not retried or rerouted.",
+  "existingBlogModified": false,
+  "localTestsDoNotCertifyThisPartialBranch": true,
+  "scientificValidation": "NOT_EXPERIMENTALLY_VALIDATED"
+}
