@@ -1,21 +1,32 @@
 {
-  "schema": "rps.publication-staging/1",
-  "intendedVersion": "1.1.0-rc3",
+  "schema": "rps.publication-staging/2",
+  "intendedVersion": "1.1.0-rc4",
   "status": "INCOMPLETE_BLOCKED_NOT_PUBLISHED",
   "mergeAllowed": false,
   "sitePublished": false,
   "fullRemoteCodePushComplete": false,
   "sourceFilesPresent": [
-    "src/engine.js",
-    "src/io.js",
-    "src/gff.js",
-    "src/review.js",
-    "src/deployment.js",
-    "src/audit_ui.js"
+    "src/engine.js", "src/io.js", "src/gff.js", "src/review.js", "src/deployment.js", "src/audit_ui.js"
   ],
   "sourceSubtreeSha1": "9465497e0d7d28299ac7fc67b75b6e16b6b3a315",
-  "blocker": "Tool platform blocked the audit-module write; the blocked write was not retried or rerouted.",
+  "thisRoundChanges": [
+    "Independent read-only release completeness checker",
+    "Expected lengths and SHA-256 hashes for 50 rc4 source/test/build/runtime files",
+    "CI preflight before building, explicit failure summary, required real HTTP browser test"
+  ],
+  "applicationModulesUpdatedThisRound": false,
+  "blockedAuditPayloadRetriedOrRerouted": false,
+  "readinessGate": "scripts/preflight_release.py",
+  "expectedInventory": "RELEASE_LOCK.json",
+  "knownPreviousCIFailure": {
+    "runId": 34498457694,
+    "jobId": 102942843591,
+    "logRead": true,
+    "cause": "python3 could not open rice-primer-studio/build.py: file missing",
+    "coreTestsStarted": false
+  },
   "existingBlogModified": false,
   "localTestsDoNotCertifyThisPartialBranch": true,
-  "scientificValidation": "NOT_EXPERIMENTALLY_VALIDATED"
+  "scientificValidation": "NOT_EXPERIMENTALLY_VALIDATED",
+  "blocker": "Prior audit-module write was blocked. The application is still incomplete. Release-control changes do not resolve or bypass that block."
 }
