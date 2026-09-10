@@ -1,0 +1,32 @@
+name: Rice Primer Studio checks
+on:
+  push:
+    branches: [hexo, release/rice-primer-studio-1.1.0-rc2]
+    paths: ['rice-primer-studio/**']
+  pull_request:
+    paths: ['rice-primer-studio/**', '.github/workflows/rice-primer-studio-ci.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rice-primer-studio-ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22.16.0'
+      - name: Rebuild and test the public application only
+        working-directory: rice-primer-studio
+        run: |
+          python3 build.py
+          mkdir -p qa
+          node --test tests/test_*.cjs
+          python3 scripts/check_public.py
+          git diff --exit-code -- index.html src downloads/rice_primer_studio_offline.html
