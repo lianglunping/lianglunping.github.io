@@ -1,0 +1,72 @@
+{
+  "schema": "rps.static-release/2",
+  "version": "1.1.0-rc4.3",
+  "mode": "PUBLIC_STATIC",
+  "sourceSha256": "2de206f44148022302b076e515ace333a2d5915171b1022020a015e162d75ebf",
+  "containsReferenceGenome": false,
+  "nativeBackendExposed": false,
+  "scientificValidation": "CANDIDATE_REVIEW_ONLY",
+  "files": {
+    "index.html": {
+      "bytes": 58010,
+      "sha256": "8fbeb70dfcc95b816c3cecc69b1dc9c235ffd121fa7bf6d1ce1bc4a5e0f43498"
+    },
+    "help.html": {
+      "bytes": 3398,
+      "sha256": "d19c8eeecdb3448a74d3e46f5b7dc8210f6c7e9527515a604e010135cccfac2e"
+    },
+    "404.html": {
+      "bytes": 758,
+      "sha256": "0504c2118b9db1afeaa1e32a0f2368ca371c98d2dbe843d6e601c3fb7f08b62a"
+    },
+    "src/engine.js": {
+      "bytes": 20859,
+      "sha256": "f5942d23474bcbde5370510a7974119c74df6d9f6dd450ca2c7a627cf05e4c39"
+    },
+    "src/io.js": {
+      "bytes": 14578,
+      "sha256": "a0984967c0967d8fcd20f4f1a47a2091e9f12523b16fe407c3879bac99581205"
+    },
+    "src/review.js": {
+      "bytes": 9900,
+      "sha256": "12f9174c207d7effb9b126adab00ae2935d6901d5783ef3e8feb0edadb9fdd84"
+    },
+    "src/gff.js": {
+      "bytes": 5716,
+      "sha256": "a3b02019fb8b55571dc2ad61f3bc5cd163a4ae97df07c62a6460a8edaabb7e09"
+    },
+    "src/audit.js": {
+      "bytes": 25516,
+      "sha256": "3b6b84b7d8474d2adf03977a9aea1d24173875bec56eadfa3570195cee8a4b1f"
+    },
+    "src/app_01.js": {
+      "bytes": 24188,
+      "sha256": "23ff0870b0d30630956fba59b2752e1d5b18c61ad97fdb62af49b670b9c49a7e"
+    },
+    "src/app_02.js": {
+      "bytes": 22406,
+      "sha256": "62ce676cb98e340066ed53500683efcd7551d47630f611aeff20c9c007e95173"
+    },
+    "src/app_03.js": {
+      "bytes": 22537,
+      "sha256": "65025b417e288666b9358b955aa81cc406ecd2bdef90fd3249b2b5b507a8d5ce"
+    },
+    "src/app_04.js": {
+      "bytes": 22998,
+      "sha256": "2a722ce0b22939cb1df3d1801c0534c81e84616dcb963a6719c43c9b4b117b82"
+    },
+    "src/app_05.js": {
+      "bytes": 7773,
+      "sha256": "53eb31467061514e561c172f4e1aa037cfef93ffe4b03ee1991fd4277ea6f354"
+    },
+    "src/audit_ui.js": {
+      "bytes": 7325,
+      "sha256": "4bc3532e475d0e92dba88305696eb089c7489caab07c7c2557389603644f6c46"
+    },
+    "src/deployment.js": {
+      "bytes": 1815,
+      "sha256": "5bf1840712aab9dbbb33dd3fcdbde506237236001cbed0fdfeaf13d874bcd792"
+    }
+  },
+  "publicationNote": "Publication-only wording and repository links updated in index.html/help.html. All 12 JavaScript modules are byte-identical to 1.1.0-rc4.3."
+}
