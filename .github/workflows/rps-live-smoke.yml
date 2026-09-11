@@ -1,0 +1,37 @@
+name: Rice Primer Studio live HTTPS tests
+on:
+  push:
+    branches: [hexo]
+    paths:
+      - 'rice-primer-studio/**'
+      - '.github/scripts/rps_live_smoke.py'
+      - '.github/workflows/rps-live-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rps-live-tests-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  live-browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install pinned browser tooling in isolated environment
+        run: |
+          python3 -m venv /tmp/rps-live-venv
+          /tmp/rps-live-venv/bin/python -m pip install --disable-pip-version-check playwright==1.57.0
+          /tmp/rps-live-venv/bin/python -m playwright install --with-deps chromium
+      - name: Test live HTTPS site, workers, local files and exports
+        run: /tmp/rps-live-venv/bin/python .github/scripts/rps_live_smoke.py
+      - name: Preserve real online screenshots, trace and synthetic downloads
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: rps-live-https-${{ github.run_id }}
+          path: rps-live-evidence/
+          if-no-files-found: warn
+          retention-days: 14
