@@ -30,12 +30,14 @@ jobs:
           persist-credentials: false
       - name: Prepare only the build-time wheel tag parser
         shell: bash
-        run: python -m pip install --disable-pip-version-check --only-binary=:all: --target .rps-build-packages packaging==25.0
+        run: |
+          python -m pip install --disable-pip-version-check --only-binary=:all: --target .rps-build-packages packaging==25.0
       - name: Acquire fixed public dependencies and test native processes
         shell: bash
         env:
           PYTHONPATH: .rps-build-packages
-        run: python -B .github/scripts/rps_acquire_runtime.py --target '${{ matrix.target }}'
+        run: |
+          python -B .github/scripts/rps_acquire_runtime.py --target '${{ matrix.target }}'
       - name: Retain payload or failure evidence, never deploy a site
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
