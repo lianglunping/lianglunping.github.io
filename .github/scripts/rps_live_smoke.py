@@ -3,11 +3,11 @@
 All entered DNA and variant records are deterministic synthetic fixtures.
 """
 from __future__ import annotations
-import base64, csv, hashlib, io, json, os, platform, sys, time, traceback
+import base64, csv, hashlib, io, json, os, platform, re, sys, time, traceback
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 
 SITE = 'https://lianglunping.github.io/rice-primer-studio/'
 ROOT = Path(__file__).resolve().parents[2]
@@ -35,7 +35,7 @@ def get(path):
         return response.read()
 
 def idle():
-    page.wait_for_function('!busy', timeout=120000)
+    expect(page.locator('#runDesign')).to_be_enabled(timeout=120_000)
 
 def download(button, name):
     with page.expect_download(timeout=20000) as d:
@@ -85,7 +85,7 @@ def main():
         try:
             response=page.goto(SITE+'?rps_live='+str(time.time_ns()),wait_until='networkidle',timeout=60000)
             check('Actual Chromium HTTPS navigation',response.status,200)
-            page.wait_for_function('typeof RPSDeployment !== "undefined"',timeout=30000)
+            expect(page.locator('#deploymentHelp')).to_have_attribute('href', re.compile(r'(^|/)help\.html$'), timeout=30_000)
             check('Actual page remains on public HTTPS',page.url.startswith(SITE))
             check('Runtime version',page.evaluate('RPS.VERSION'),local['version'])
             check('Distribution mode',page.evaluate('RPSDeployment.snapshot().mode'),'PUBLIC_STATIC')
@@ -133,7 +133,7 @@ def main():
             seq=demo['seq'];fa=('>Chr01\n'+'\n'.join(seq[i:i+60] for i in range(0,len(seq),60))+'\n').encode()
             page.locator('#toggleRef').click()
             page.locator('#fastaFile').set_input_files({'name':'SYNTHETIC_LIVE_REFERENCE.fa','mimeType':'text/plain','buffer':fa})
-            page.wait_for_function('refFile!==null && refFile.name==="SYNTHETIC_LIVE_REFERENCE.fa"')
+            expect(page.locator('#refStatus')).to_have_text(re.compile(r'^SYNTHETIC_LIVE_REFERENCE\.fa ·'), timeout=30_000)
             page.locator('#buildIndex').click();idle()
             check('FASTA index contig length',page.evaluate('entries[0].length'),len(seq))
             check('FASTA SHA256 agrees with Python',page.evaluate('refSha'),hashlib.sha256(fa).hexdigest())
@@ -144,7 +144,7 @@ def main():
             page.locator('#ref').fill('')
             page.locator('#refFetchLen').fill('1')
             page.locator('#fetchRefBase').click()
-            page.wait_for_function('document.getElementById("ref").value!==""')
+            expect(page.locator('#ref')).not_to_have_value('', timeout=30_000)
             check('REF read from selected FASTA',page.locator('#ref').input_value(),demo['ref'])
             page.locator('#alt').fill(demo['alt'])
             for mode in ['sanger','kasp']:
@@ -179,7 +179,7 @@ def main():
             page.wait_for_url(SITE+'help.html')
             check('Help navigates to real hosted page',page.url,SITE+'help.html')
             page.locator('a[href="index.html"]').click()
-            page.wait_for_function('typeof RPSDeployment!=="undefined"')
+            expect(page.locator('#deploymentHelp')).to_have_attribute('href', re.compile(r'(^|/)help\.html$'), timeout=30_000)
             check('Return from help reinitializes app',page.evaluate('RPS.VERSION'),local['version'])
         finally:
             report['pageErrors']=errors
